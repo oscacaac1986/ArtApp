@@ -18,7 +18,7 @@ env = environ.Env(
     DJANGO_DEBUG=(bool, False)
 )
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['164.92.161.198:8000', '127.0.0.1', 'localhost']
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = env.int("DJANGO_SITE_ID", 1)
