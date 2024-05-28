@@ -18,7 +18,7 @@ env = environ.Env(
     DJANGO_DEBUG=(bool, False)
 )
 
-ALLOWED_HOSTS = ['164.92.161.198:8000', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ["*"]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = env.int("DJANGO_SITE_ID", 1)
@@ -36,9 +36,6 @@ SECRET_KEY = 'django-insecure-uor=p!64ooww6akxn)6zd@uly-eb@b!ym6%zf$j@cye4q$5e#b
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
