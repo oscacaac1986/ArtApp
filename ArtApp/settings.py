@@ -17,6 +17,9 @@ env = environ.Env(
     # set casting, default value
     DJANGO_DEBUG=(bool, False)
 )
+
+ALLOWED_HOSTS = ["*"]
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = env.int("DJANGO_SITE_ID", 1)
 SITE_DOMAIN_NAME = env("SITE_DOMAIN_NAME", default="example.com")
