@@ -2,7 +2,7 @@ from django.urls import include, path
 from rest_framework import routers
 
 from accounts.views import FacebookLogin, GoogleLogin
-from classArt.views import ArtisticExpressionsDetail, ArtisticExpressionsList, LevelDetail, LevelList, TypeArtisticExpressionDetail, TypeArtisticExpressionList
+from classArt.views import ArtisticExpressionsDetail, ArtisticExpressionsList, LevelDetail, LevelList, TypeArtisticExpressionByArtisticExpression, TypeArtisticExpressionDetail, TypeArtisticExpressionList
 
 router = routers.DefaultRouter()
 urlpatterns = [
@@ -14,5 +14,6 @@ urlpatterns = [
 
     path('levels/', LevelList.as_view(), name='levels_list'),
     path('levels/<int:pk>/', LevelDetail.as_view(), name='level_detail'),
+    path('type_artistic_expressions/by_artistic_expression/<int:artistic_expression_id>/', TypeArtisticExpressionByArtisticExpression.as_view(), name='type_artistic_expression_by_artistic_expression'),
 ]
 urlpatterns += router.urls

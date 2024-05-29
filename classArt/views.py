@@ -70,3 +70,15 @@ class LevelDetail(APIView):
         level = get_object_or_404(self.get_queryset(), pk=pk)
         serializer = LevelSerializer(level)
         return Response(serializer.data)
+
+class TypeArtisticExpressionByArtisticExpression(APIView):
+    
+    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
+
+    def get_queryset(self):
+        return TypeArtisticExpression.objects.all()
+
+    def get(self, request, artistic_expression_id, format=None):
+        type_artistic_expressions = self.get_queryset().filter(art_expression_id=artistic_expression_id)
+        serializer = TypeArtisticExpressionSerializer(type_artistic_expressions, many=True)
+        return Response(serializer.data)
