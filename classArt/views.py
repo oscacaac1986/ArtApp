@@ -2,11 +2,13 @@ from rest_framework import permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+
+from ArtApp.permissions import IsAdminOrReadOnly
 from .models import ArtisticExpressions, TypeArtisticExpression, Level
 from .serializer import ArtisticExpressionsSerializer, TypeArtisticExpressionSerializer, LevelSerializer
 
 class ArtisticExpressionsList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return ArtisticExpressions.objects.all()
@@ -17,7 +19,7 @@ class ArtisticExpressionsList(APIView):
         return Response(serializer.data)
 
 class ArtisticExpressionsDetail(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return ArtisticExpressions.objects.all()
@@ -28,7 +30,7 @@ class ArtisticExpressionsDetail(APIView):
         return Response(serializer.data)
 
 class TypeArtisticExpressionList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return TypeArtisticExpression.objects.all()
@@ -39,7 +41,7 @@ class TypeArtisticExpressionList(APIView):
         return Response(serializer.data)
 
 class TypeArtisticExpressionDetail(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return TypeArtisticExpression.objects.all()
@@ -50,7 +52,7 @@ class TypeArtisticExpressionDetail(APIView):
         return Response(serializer.data)
 
 class LevelList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return Level.objects.all()
@@ -61,7 +63,7 @@ class LevelList(APIView):
         return Response(serializer.data)
 
 class LevelDetail(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return Level.objects.all()
@@ -73,7 +75,7 @@ class LevelDetail(APIView):
 
 class TypeArtisticExpressionByArtisticExpression(APIView):
     
-    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return TypeArtisticExpression.objects.all()
