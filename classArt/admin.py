@@ -13,7 +13,7 @@ class TypeArtisticExpressionAdmin(admin.ModelAdmin):
     art_expression_name.short_description = 'Art Expression'
 
 class LevelAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
+    list_display = ('id', 'name', 'description')
 
 admin.site.register(ArtisticExpressions, ArtisticExpressionsAdmin)
 admin.site.register(TypeArtisticExpression, TypeArtisticExpressionAdmin)
